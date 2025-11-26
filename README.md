@@ -1,3 +1,3 @@
-#Hardcoding a blockchain manually
+# Hardcoding a blockchain manually
 
-##Let's see how this works
+## Let's see how this works
