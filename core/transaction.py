@@ -18,6 +18,7 @@ class Transaction:
         self.nonce = nonce
         self.signature = None 
         self.id = self._calculate_id() 
+        self.priority = 0.5
         
     def get_message_data(self) -> str:
         tx_dict = {

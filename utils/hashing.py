@@ -1,5 +1,5 @@
 from typing import List, Union, Dict, Tuple
-from crypto import sha256_hash
+from utils.crypto import sha256_hash
 
 
 def merkle_root(transaction: List) -> str:
