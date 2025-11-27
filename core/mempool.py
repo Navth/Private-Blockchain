@@ -91,18 +91,25 @@ class Mempool:
         self.tx_by_id.clear()
         
     def get_stats(self) -> Dict[str, Any]:
+        stats = {
+            "size": 0,
+            "avg_priority": 0.0,
+            "max_priority": 0.0,
+            "min_priority": 0.0
+        }
+        
         if not self.transactions:
-            return {"size": 0, "avg_priority": 0}
+            return stats
             
         priorities = [tx.priority for tx in self.transactions if hasattr(tx, 'priority')]
-        avg_priority = sum(priorities) / len(priorities) if priorities else 0
         
-        return {
-            "size": len(self.transactions),
-            "avg_priority": round(avg_priority, 3),
-            "max_priority": round(max(priorities), 3) if priorities else 0,
-            "min_priority": round(min(priorities), 3) if priorities else 0
-        }
+        if priorities:
+            stats["size"] = len(self.transactions)
+            stats["avg_priority"] = round(sum(priorities) / len(priorities), 3)
+            stats["max_priority"] = round(max(priorities), 3)
+            stats["min_priority"] = round(min(priorities), 3)
+            
+        return stats
         
     def __repr__(self) -> str:
         stats = self.get_stats()
