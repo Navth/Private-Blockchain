@@ -1,4 +1,3 @@
-
 from core.blockchain import Blockchain
 from core.transaction import Transaction
 from core.block import Block

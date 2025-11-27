@@ -1,7 +1,6 @@
 from typing import List, Union, Dict, Tuple
 from utils.crypto import sha256_hash
 
-
 def merkle_root(transaction: List) -> str:
     if not transaction:
         return sha256_hash("")
@@ -22,7 +21,6 @@ def merkle_root(transaction: List) -> str:
         current_level = next_level
     
     return current_level[0]
-
 
 def merkle_proof(transactions: List[Union[str, Dict]], target_tx: Union[str, Dict]) -> List[Tuple[str, str]]:
 
@@ -66,7 +64,6 @@ def merkle_proof(transactions: List[Union[str, Dict]], target_tx: Union[str, Dic
     
     return proof
 
-
 def verify_merkle_proof(target_tx: Union[str, Dict], proof: List[Tuple[str, str]], merkle_root_hash: str) -> bool:
  
     current_hash = sha256_hash(target_tx)
@@ -80,5 +77,3 @@ def verify_merkle_proof(target_tx: Union[str, Dict], proof: List[Tuple[str, str]
         current_hash = sha256_hash(combined_hash)
     
     return current_hash == merkle_root_hash
-
-

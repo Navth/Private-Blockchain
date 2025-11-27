@@ -1,4 +1,3 @@
-
 from typing import List, Optional, Dict, Any
 from core.block import Block
 from core.transaction import Transaction
@@ -7,7 +6,6 @@ from config import BlockchainConfig, ValidatorConfig
 
 class Blockchain:
 
-    
     def __init__(self):
         self.chain: List[Block] = []
         self.mempool = Mempool()

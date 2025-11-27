@@ -1,4 +1,3 @@
-
 from enum import Enum
 from typing import Dict, List
 import os
@@ -48,7 +47,6 @@ class ConsensusConfig:
     QUORUM_NORMAL = 0.67
     QUORUM_ROUTINE = 0.75
     
-
 class PriorityConfig:
     ALPHA = 0.3
     BETA = 0.4

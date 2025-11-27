@@ -107,4 +107,3 @@ class Mempool:
     def __repr__(self) -> str:
         stats = self.get_stats()
         return f"Mempool(size={stats['size']}, avg_priority={stats['avg_priority']})"
-    
